@@ -1,0 +1,39 @@
+150307 howto integrate external docs like lab reps, xrays etc.?
+150307 put create table(s) accC, invC, payC, chP, insP, prodP etc s. queries.sql
+150223 sort out encoding, thought that by now all was UTF-8 but apparently isn't
+150222 patient: ck prod_queue add_prod(action=...) re new ptypes -- done?
+150208 Long p_name wrapped in client.gcell but no height adaptation...  and no balance information as well...  bin this?
+141221 change all db_state to use gaia if present -- done?
+141220 eliminate Esc closing windows like sae..., client, patient
+141127 passwd security: datefix, dbmod, gnuv
+141128 table dependencies:
+    accC -> prodP -- this is nonsense, as account should exist even without
+    patient:
+        acc_prid integer references prod{}
+	acc_pid integer references patients
+	try without not null?  But where to book cash when no patient?
+
+141127 in work: client
+
+141127 careful with that axe dbstate signal: prevent endless loops
+
+141107 re-ck gnuv.py and other older files, there's much cramp in there
+141118 implement db_state in every module using querydb from util
+141120 implement dbdep_enable (from gnuv.py) in every dbdep module
+141118 datefix.py et al.: dbA.connect(self.origin.db_reconnect)
+141018 implement 'gaia' in ALL respective *.py files: saepat in work
+141120 passwd in gnuv.py: do not save, user has to re-enter!!!
+141120 ck that every new pw contains at least 8 chars and mixes alnumsign
+141117 client- and server-encoding: UTF-8 inst/o LATIN9?
+141014 add text search in clinical history  patient
+141121 add text search over all clinical history gnuv.py
+141014 implement vaccination  patient products
+
+140402
+update lastseen on clinical entry, how if e.g. only telephone call?
+
+141117
+Take care on postgres upgrade: if one leaves older postgres version, newer one will switch to different port (e.g. 5433 inst/o 5432).
+
+141121
+Access to ch* only for vets.  Access to prod* for staff, too.  Via postgres users or gnuvet?

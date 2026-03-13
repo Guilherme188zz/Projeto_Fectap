@@ -1,0 +1,10 @@
+to solve:
+xrange -> range
+
+Decimal?
+
+to edit:
+print -> print() DONE
+except MyError, e -> MyError as e DONE
+division / -> //
+str(QString.toLatin1()) ?

@@ -1,0 +1,8 @@
+db:
+where ambiguous column names might occur, precede name with initial of table + _
+ e.g. p_name, breed_name
+
+py:
+signals one word w/o underscores
+function names if applicable contain underscores (to prevent camelcase)
+ e.g. gvquit vs gv_quit vs gvQuit (arrgh)

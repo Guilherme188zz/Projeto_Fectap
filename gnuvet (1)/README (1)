@@ -1,0 +1,15 @@
+This is Pre-Alpha incomplete work.
+
+I apologise for any inconvenience.
+
+gnuvet is to be an open-source and free veterinary practice management tool.  gnuvet is published under the GNU Public License (GPL), see the LICENSE file if you're interested.
+
+Prerequisites:
+python2.7 or later
+a fairly recent psycopg2 corresponding to your python
+postgresql 8.4. or later
+pyqt4 4.8 or later
+
+gnuvet offers a multi-user distributed system with the paradigm of being usable intuitively by everyone, mouse- as well as keyboard-fetishists, covering (almost) all possible procedures occuring within a veterinary practice from simple OTC-sales up to surgery, vaccination reminders, and providing all relevant details of information from the database.
+
+This includes maintenance of patient history and therapies, printing of instruction labels, invoicing, statistics for patients, sales, etc.pp.

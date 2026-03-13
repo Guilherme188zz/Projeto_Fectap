@@ -1,0 +1,37 @@
+N = cid
+Z = pid
+invoices:
+invoice_id serial primary key
+inv_no varchar(12) not null unique -- yyyymmdd[0-9]{3}, date+'{:>04}'.format(n)
+
+accN:
+acc_id serial primary key
+acc_invno integer references invoices -- null: unpaid
+acc_pid integer not null references patients
+-- acc_prid integer not null references products -- redundance
+acc_idx integer not null -- medZ.id -> txt(pr_id),count
+acc_npr numeric(9,2) not null
+acc_vat integer not null references vats default 1
+
+brt 23.5
+vat  0.175
+net = D(str(price))/(D(str(vat))+1)).quantize(D('0.00')
+
+brt = net * (1 + vat)
+brt/(1 + vat) = net
+
+INVOICE START:
+invoice = self.querydb('select p_id from patients where p_cid=%s', (self.cid,))
+pids = [e[0] for e in curs.fetchall()]
+invoice = []
+for e in pids:
+    curs.execute
+select acc_id,p_name,pr_name,acc_npr,vat_rate,count 
+from acc{0},med{1},patients,products,vats 
+where
+ vat_id=pr_vat and
+ acc_idx=med{1}.id and
+ pr_id=med{1}.txt and
+ acc_pid=p_id and
+ acc_invno is null
+.format(self.cid,self.pid)

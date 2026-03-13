@@ -1,0 +1,41 @@
+#!/bin/bash
+#set -e
+verbose='2>&1|egrep ERR\|FEH && ERR=1'
+debug=eval
+declare -g ERR=""
+
+if [ -n "$1" ]; then
+    if [ $1 == "-h" ]; then
+	echo "Usage: recrdb.psql [-h|-v]"
+	echo "       -h  show this help text"
+	echo "       -v  be verbose"
+	exit 0
+    elif [ $1 == '-v' ]; then
+	verbose=""
+    fi
+fi
+
+echo -n '    Going to roll in db.p.sql: '
+$debug psql gnuvet -f ./db.p.sql $verbose
+if [ "$ERR" ]; then
+    echo "error happened"
+    exit $ERR
+fi
+echo 'done'
+echo -n '    Going to roll in populate.p.sql: '
+$debug psql gnuvet -f ./populate.p.sql $verbose
+if [ "$ERR" ]; then
+    echo "error happened"
+    exit $ERR
+fi
+echo 'done'
+echo -n '    Going to roll in sample-entries.p.sql: '
+$debug psql gnuvet -f ./sample-entries.p.sql $verbose
+echo 'done'
+if [ "$ERR" ]; then
+    echo "error happened"
+    exit $ERR
+fi
+if [ -n "$verbose" ]; then
+    [ "$ERR" ] && echo "    Db re-created with Errors." || echo "    Db re-created successfully."
+fi

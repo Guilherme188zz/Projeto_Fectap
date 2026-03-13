@@ -1,0 +1,112 @@
+# -*- coding: utf-8 -*-
+
+# Copyright (c) 2015 Dipl.Tzt. Enno Deimel <ennodotvetatgmxdotnet>
+#
+# This file is part of gnuvet, published under the GNU General Public License
+# version 3 or later (GPLv3+ in short).  See the file LICENSE for information.
+
+# Initially created: Tue May 31 08:35:25 2011 by: PyQt4 UI code generator 4.8.3
+# TODO:
+# add no_dbconn?
+
+from PyQt4.QtGui import (QApplication, QCheckBox, QComboBox, QDateTimeEdit,
+                         QDoubleSpinBox, QFrame, QLabel, QPushButton,)
+from PyQt4.QtCore import Qt
+
+def tl(txt=''):
+    return QApplication.translate("Weight", txt, None, 1)
+
+class Ui_Weight(object):
+    def setupUi(self, Weight):
+        Weight.resize(500, 405)
+        Weight.setMinimumSize(500, 405)
+        Weight.setMaximumSize(1000, 405)
+        self.lLb = QLabel(Weight)
+        self.lLb.setGeometry(Weight.width()-90, 5, 80, 19)
+        self.lLb.setAlignment(Qt.AlignRight)
+        self.dLb = QLabel(Weight)
+        self.dLb.setGeometry(20, 25, 50, 17)
+        self.wDe = QDateTimeEdit(Weight)
+        self.wDe.setGeometry(60, 22, 165, 22)
+        self.wDe.setCalendarPopup(1)
+        self.wSb = QDoubleSpinBox(Weight)
+        self.wSb.setGeometry(250, 22, 102, 22)
+        self.wSb.setRange(0.001, 9999) # no whales
+        self.wLb = QLabel(Weight)
+        self.wLb.setGeometry(360, 25, 22, 17)
+        self.estCb = QCheckBox(Weight)
+        self.estCb.setGeometry(398, 24, 100, 21)
+        self.addPb = QPushButton(Weight)
+        self.delPb = QPushButton(Weight)
+        self.periodPb = QPushButton(Weight)
+        self.printPb = QPushButton(Weight)
+        self.closePb = QPushButton(Weight)
+        self.addPb.setGeometry(130, 365, 60, 28)
+        self.delPb.setGeometry(195, 365, 60, 28)
+        self.periodPb.setGeometry(260, 365, 60, 28)
+        self.printPb.setGeometry(325, 365, 60, 28)
+        self.closePb.setGeometry(390, 365, 60, 28)
+        self.dLb.setBuddy(self.wDe)
+        self.wLb.setBuddy(self.wSb)
+        self.confirm = QFrame(Weight)
+        self.confirm.setFrameStyle(1)
+        self.confirm.setGeometry(90, 105, 320, 200)
+        self.confirm.setAutoFillBackground(1)
+        self.confirmLb = QLabel(self.confirm)
+        self.confirmLb.setGeometry(50, 45, 210, 17)
+        self.confirmLb.setAlignment(Qt.AlignCenter)
+        self.confirmPb = QPushButton(self.confirm)
+        self.confirm_cancelPb = QPushButton(self.confirm)
+        self.confirmPb.setGeometry(95, 110, 60, 28)
+        self.confirm_cancelPb.setGeometry(160, 110, 60, 28)
+        self.entrydelLb = QLabel(Weight)
+        self.entrydelLb.setGeometry(20, 25, 60, 17)
+        self.entrydelDd = QComboBox(Weight)
+        self.entrydelDd.setGeometry(70, 22, 265, 23)
+        self.entrydelPb = QPushButton(Weight)
+        self.entrydelPb.setGeometry(355, 19, 60, 28)
+        self.entrydel_cancelPb = QPushButton(Weight)
+        self.entrydel_cancelPb.setGeometry(420, 19, 60, 28)
+        self.datesel = QFrame(Weight)
+        self.datesel.setFrameStyle(1)
+        self.datesel.setGeometry(90, 105, 320, 200)
+        self.datesel.setAutoFillBackground(1)
+        self.loLb = QLabel(self.datesel)
+        self.loLb.setGeometry(50, 40, 35, 17)
+        self.loDd = QComboBox(self.datesel)
+        self.loDd.setGeometry(90, 40, 165, 22)
+        self.hiLb = QLabel(self.datesel)
+        self.hiLb.setGeometry(50, 80, 35, 17)
+        self.hiDd = QComboBox(self.datesel)
+        self.hiDd.setGeometry(90, 80, 165, 22)
+        self.loLb.setBuddy(self.loDd)
+        self.hiLb.setBuddy(self.hiDd)
+        self.entrydelLb.setBuddy(self.entrydelDd)
+        self.dselPb = QPushButton(self.datesel)
+        self.dsel_cancelPb = QPushButton(self.datesel)
+        self.dselPb.setGeometry(90, 140, 60, 28)
+        self.dsel_cancelPb.setGeometry(160, 140, 60, 28)
+        self.retranslateUi(Weight)
+
+    def retranslateUi(self, Weight):
+        Weight.setWindowTitle(tl("GnuVet: Patient Weight"))
+        self.dLb.setText(tl("&Date:"))
+        self.wLb.setText(tl("&kg"))
+        self.estCb.setText(tl("&estimated"))
+        self.entrydelLb.setText(tl("Entr&y"))
+        self.addPb.setText(tl("&Add"))
+        self.addPb.setToolTip(tl("Add entry as set above"))
+        self.delPb.setText(tl("De&lete"))
+        self.delPb.setToolTip(tl("Delete an entry"))
+        self.periodPb.setText(tl("Pe&riod"))
+        self.periodPb.setToolTip(tl("Select time period to display"))
+        self.printPb.setText(tl("&Print"))
+        self.closePb.setText(tl("Close"))
+        self.confirmPb.setText(tl("&Add"))
+        self.confirm_cancelPb.setText(tl("&Cancel"))
+        self.loLb.setText(tl("&from"))
+        self.hiLb.setText(tl("&to"))
+        self.dselPb.setText(tl("&Ok"))
+        self.dsel_cancelPb.setText(tl("&Cancel"))
+        self.entrydelPb.setText(tl("De&lete"))
+        self.entrydel_cancelPb.setText(tl("&Cancel"))
